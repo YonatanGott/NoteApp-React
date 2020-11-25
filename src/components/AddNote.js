@@ -44,7 +44,9 @@ export default function AddNote() {
                         name="note"
                         id="note"
                         onChange={handleChange}
-                        value={value} />
+                        value={value}
+                        contenteditable
+                    />
                     <button className="btn btn-primary btn-block btn-lg" id="btn" type="submit">Add note</button>
                 </form>
             </div>

@@ -4,10 +4,11 @@ body {
   font-family: "Oswald", sans-serif;
   box-sizing: border-box;
 }
-.form-row{
+.form-row {
   margin-top: 1.5rem;
 }
-.input-title, .input-text{
+.input-title,
+.input-text {
   margin-bottom: 1rem;
   box-shadow: 0 0 10px;
 }
@@ -30,7 +31,7 @@ body {
   padding-bottom: 0.4rem;
   overflow: auto;
 }
-.note-title{
+.note-title {
   font-weight: 600;
   font-size: 1.7rem;
   text-decoration: underline;
@@ -41,6 +42,7 @@ body {
 }
 .card-body:hover {
   background-color: Lavender;
+  cursor: default;
 }
 #note {
   font-weight: 500;
@@ -57,4 +59,30 @@ body {
 }
 .remove-note:hover {
   background-color: rebeccapurple;
+}
+.modal-note {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  right: auto;
+  bottom: auto;
+  margin: auto;
+  background-color:aliceblue;
+  border-radius: 10px;
+  min-height: 20rem;
+  min-width: 25rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(86, 2, 105, 0.75);
 }
