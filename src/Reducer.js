@@ -3,7 +3,8 @@ export default function reducer(state, action) {
         case 'ADD_NOTE':
             const newNote = {
                 id: Date.now(),
-                text: action.payload
+                title: action.payload.title,
+                text: action.payload.value
             };
 
             const addedNotes = [...state.notes, newNote];

@@ -24,6 +24,7 @@ export default function Note({ note }) {
                         }}
                     />
                 </div>
+                    <h4 className="note-title">{note.title}</h4>
                 <p className="card-text">{note.text}</p>
             </div>
         </div>

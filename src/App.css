@@ -4,6 +4,13 @@ body {
   font-family: "Oswald", sans-serif;
   box-sizing: border-box;
 }
+.form-row{
+  margin-top: 1.5rem;
+}
+.input-title, .input-text{
+  margin-bottom: 1rem;
+  box-shadow: 0 0 10px;
+}
 #btn {
   background-color: rebeccapurple;
   color: aliceblue;
@@ -21,10 +28,16 @@ body {
   padding-left: 0.2rem;
   padding-right: 0.2rem;
   padding-bottom: 0.4rem;
+  overflow: auto;
 }
-.card-text {
+.note-title{
   font-weight: 600;
   font-size: 1.7rem;
+  text-decoration: underline;
+}
+.card-text {
+  font-weight: 500;
+  font-size: 1.4rem;
 }
 .card-body:hover {
   background-color: Lavender;
