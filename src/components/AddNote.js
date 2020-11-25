@@ -1,5 +1,5 @@
 
-import React, { useState, useContext, useRef, useEffect } from 'react';
+import React, { useState, useContext, } from 'react';
 import NotesContext from '../Context';
 
 export default function AddNote() {
@@ -7,17 +7,11 @@ export default function AddNote() {
     const [value, setValue] = useState('');
     const [title, setTitle] = useState('');
 
-    let ref = useRef();
-
-    useEffect(() => {
-        ref.current.focus();
-    });
-
     const handleChange = event => {
         setValue(event.target.value);
     };
 
-    const handleChangeTitle = event =>{
+    const handleChangeTitle = event => {
         setTitle(event.target.value);
     }
 
@@ -26,7 +20,7 @@ export default function AddNote() {
         if (value.trim() === '') {
             alert('Cannot add a blank note');
         } else {
-            dispatch({ type: 'ADD_NOTE', payload: {value: value, title: title} });
+            dispatch({ type: 'ADD_NOTE', payload: { value: value, title: title } });
             setValue('');
             setTitle('');
         }
@@ -37,11 +31,11 @@ export default function AddNote() {
             <div className="col-md-4 form-col">
                 <form className="form-group" onSubmit={handleSubmit} action=''>
                     <input
-                    className="input-title form-control"
-                    type="text"
-                    placeholder="Enter Note Title"
-                    onChange={handleChangeTitle}
-                    value={title}
+                        className="input-title form-control"
+                        type="text"
+                        placeholder="Enter Note Title"
+                        onChange={handleChangeTitle}
+                        value={title}
                     />
                     <textarea
                         className="form-control input-text"
@@ -49,7 +43,6 @@ export default function AddNote() {
                         rows="5"
                         name="note"
                         id="note"
-                        ref={ref}
                         onChange={handleChange}
                         value={value} />
                     <button className="btn btn-primary btn-block btn-lg" id="btn" type="submit">Add note</button>
