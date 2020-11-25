@@ -1,50 +1,47 @@
-import React from 'react';
 
-class AddNote extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            note: ''
-        };
-    }
+import React, { useState, useContext, useRef, useEffect } from 'react';
+import NotesContext from '../Context';
 
-    handleNoteChange(event) {
-        this.setState({ note: event.target.value });
-    }
+export default function AddNote() {
+    const { state, dispatch } = useContext(NotesContext);
+    const [value, setValue] = useState('');
 
-    handleSubmit(event) {
+    let ref = useRef();
+
+    useEffect(() => {
+        ref.current.focus();
+    });
+
+    const handleChange = event => {
+        setValue(event.target.value);
+    };
+
+    const handleSubmit = event => {
         event.preventDefault();
-        const newNote = {
-            note: this.state.note,
-            dateCreated: Date.now()
-        };
-        this.props.onAddNote(newNote);
-    }
+        if (value.trim() === '') {
+            alert('Cannot add a blank note');
+        } else {
+            dispatch({ type: 'ADD_NOTE', payload: value });
+            setValue('');
+        }
+    };
 
-    render() {
-        return (
-            <div className="row justify-content-md-center">
-                <div className="col-md-4 col">
-                    <form className="form-group" onSubmit={(event) => this.handleSubmit(event)}>
-                        <div>
-                            <textarea
-                                className="form-control"
-                                type="text"
-                                rows="5"
-                                name="note"
-                                id="note"
-                                value={this.state.note}
-                                onChange={(event) => this.handleNoteChange(event)}
-                            />
-                        </div>
-                        <div>
-                            <button className="btn btn-primary btn-block btn-lg" id="btn" type="submit">Add Note</button>
-                        </div>
-                    </form>
-                </div>
+    return (
+        <div className="row justify-content-md-center">
+            <div className="col-md-4 col">
+                <form className="form-group" onSubmit={handleSubmit} action=''>
+                    <textarea
+                        className="form-control"
+                        type="text"
+                        rows="5"
+                        name="note"
+                        id="note"
+                        ref={ref}
+                        onChange={handleChange}
+                        value={value} />
+                    <button className="btn btn-primary btn-block btn-lg" id="btn" type="submit">Add note</button>
+                </form>
             </div>
-        )
-    }
+        </div>
+    );
 }
-
-export default AddNote;

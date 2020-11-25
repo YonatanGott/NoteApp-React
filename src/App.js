@@ -1,33 +1,27 @@
 import './App.css';
-import React from 'react';
+import React, { useContext, useReducer } from 'react';
 import AddNote from './components/AddNote';
-import NotesList from './components/NoteItem';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import NotesContext from './Context';
+import NoteList from './components/NoteList';
+import notesReducer from './Reducer';
+
+function App() {
+  const initialState = useContext(NotesContext);
+  const [state, dispatch] = useReducer(notesReducer, initialState);
+  return (
+    <NotesContext.Provider value={{ state, dispatch }}>
 
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      notes: []
-    }
-  }
-
-  handleOnAddNote(newNote) {
-    this.setState((state) => {
-      return { notes: [newNote, ...state.notes] }
-    });
-  }
-
-  render() {
-    return (
       <div className="main container-md">
-        <AddNote onAddNote={(newNote) => this.handleOnAddNote(newNote)} />
-        <NotesList notes={this.state.notes} />
+        <AddNote />
+        <NoteList />
       </div>
-    );
-  }
+      }
+    </NotesContext.Provider>
+  );
 }
+
 
 
 export default App;
