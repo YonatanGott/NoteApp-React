@@ -23,7 +23,7 @@ export default function Note({ note }) {
     };
 
     return (
-        <div className="col-md-3 col">
+        <div className="col-auto col">
             <ReactModal
                 isOpen={modalIsOpen}
                 onRequestClose={toggleModal}
@@ -32,7 +32,7 @@ export default function Note({ note }) {
             >
                 <div className="card-body text-center">
                     <div className="card-head">
-                        <p className="date-text">New Note</p>
+                        <p className="update-text">Update Note</p>
                         <Cross
                             className="remove-note close-modal"
                             role="button"

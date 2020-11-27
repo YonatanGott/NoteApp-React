@@ -28,15 +28,25 @@ export default function reducer(state, action) {
                 currentNote: action.payload
             };
         case 'UPDATE_NOTE':
+
+            const updatedNotesIndex = state.notes.findIndex(
+                note => note.id === state.currentNote.id
+            );
+
             const addNote = {
                 id: Date.now(),
                 title: action.payload.title,
                 text: action.payload.value
             };
-            const updatedNotes = [...state.notes, addNote];
+            const updatedNotes = [
+                ...state.notes.slice(0, updatedNotesIndex),
+                addNote,
+                ...state.notes.slice(updatedNotesIndex + 1)
+            ];
 
             return {
                 ...state,
+                currentNote: addNote,
                 notes: updatedNotes
             };
 

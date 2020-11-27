@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import NotesContext from '../Context';
 
+
 export default function EditNote() {
     const { state, dispatch } = useContext(NotesContext);
     const [value, setValue] = useState(state.currentNote.text);
@@ -19,8 +20,6 @@ export default function EditNote() {
         event.preventDefault();
         dispatch({ type: 'UPDATE_NOTE', payload: { value: value, title: title } });
         dispatch({ type: 'DELETE_NOTE', payload: id });
-        setValue('');
-        setTitle('');
     };
 
 

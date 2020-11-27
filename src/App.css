@@ -54,6 +54,9 @@ body {
   font-weight: 500;
   font-size: 1.4rem;
 }
+.update-text{
+  font-size: 1.4rem;
+}
 .card-body:hover {
   background-color: Lavender;
   cursor: default;
@@ -75,6 +78,7 @@ body {
 .edit-note{
   width: 1.4rem;
   margin-right: 1rem;
+  margin-left: 1rem;
 }
 .remove-note:hover {
   background-color: rebeccapurple;
