@@ -3,7 +3,7 @@ import React, { useState, useContext, } from 'react';
 import NotesContext from '../Context';
 
 export default function AddNote() {
-    const { state, dispatch } = useContext(NotesContext);
+    const { dispatch } = useContext(NotesContext);
     const [value, setValue] = useState('');
     const [title, setTitle] = useState('');
 
@@ -45,7 +45,6 @@ export default function AddNote() {
                         id="note"
                         onChange={handleChange}
                         value={value}
-                        contenteditable
                     />
                     <button className="btn btn-primary btn-block btn-lg" id="btn" type="submit">Add note</button>
                 </form>

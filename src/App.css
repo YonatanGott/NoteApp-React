@@ -12,6 +12,11 @@ body {
   margin-bottom: 1rem;
   box-shadow: 0 0 10px;
 }
+.input-title:focus, .input-text:focus{
+  -webkit-transform: scale(1.15);
+  -moz-transform: scale(1.15);
+  -o-transform: scale(1.15);
+}
 #btn {
   background-color: rebeccapurple;
   color: aliceblue;
@@ -22,7 +27,7 @@ body {
   color: rebeccapurple;
 }
 #card {
-  box-shadow: 0 0 10px;
+  -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
   margin-top: 1rem;
   width: 100%;
   padding-top: 0;
@@ -30,6 +35,15 @@ body {
   padding-right: 0.2rem;
   padding-bottom: 0.4rem;
   overflow: auto;
+}
+
+#card:hover{
+  -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+  box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  -webkit-transform: scale(1.15);
+  -moz-transform: scale(1.15);
+  -o-transform: scale(1.15);
 }
 .note-title {
   font-weight: 600;
@@ -52,10 +66,15 @@ body {
   width: 100%;
   justify-content: space-between;
 }
-.remove-note {
+.remove-note{
   margin-top: 0.2rem;
   border: transparent;
-  background-color: whitesmoke;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.edit-note{
+  width: 1.4rem;
+  margin-right: 1rem;
 }
 .remove-note:hover {
   background-color: rebeccapurple;

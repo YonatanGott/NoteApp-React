@@ -7,8 +7,8 @@ export default function NoteList() {
 
     return (
         <div className='row justify-content-lg-center'>
-            {state.notes.map((note, i) => {
-                return <Note note={note} key={i} />;
+            {state.notes.map((note, id) => {
+                return <Note note={note} key={id} />;
             })}
         </div>
     );
